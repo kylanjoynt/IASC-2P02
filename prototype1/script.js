@@ -37,6 +37,14 @@ const testSphere = new THREE.Mesh(sphereGeometry, sphereMaterial)
 
 scene.add(testSphere)
 
+// testTorusKnot
+const torusKnotGeometry = new THREE.TorusKnotGeometry(1.5,0.4)
+const torusKnotMaterial = new THREE.MeshNormalMaterial()
+const testTorusKnot = new THREE.Mesh(torusKnotGeometry, torusKnotMaterial)
+
+scene.add(testTorusKnot)
+
+
 /*******************
 ** ANIMATION LOOP **
 ********************/
