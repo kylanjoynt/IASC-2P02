@@ -46,7 +46,6 @@ controls.enableDamping = true
 /***********
 ** MESHES **
 ************/
-// testSphere
 // testTorusKnot
 const torusKnotGeometry = new THREE.TorusKnotGeometry(1.5,0.4)
 const torusKnotMaterial = new THREE.MeshNormalMaterial()
