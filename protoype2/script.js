@@ -46,8 +46,9 @@ controls.enableDamping = true
 /***********
 ** MESHES **
 ************/
+
 // testTorusKnot
-const torusKnotGeometry = new THREE.TorusKnotGeometry(1.5,0.4)
+const torusKnotGeometry = new THREE.TorusKnotGeometry(1.5, 0.4)
 const torusKnotMaterial = new THREE.MeshNormalMaterial()
 const testTorusKnot = new THREE.Mesh(torusKnotGeometry, torusKnotMaterial)
 
@@ -56,7 +57,7 @@ scene.add(testTorusKnot)
 // Plane
 const planeGeometry = new THREE.PlaneGeometry(10, 10, 50, 50)
 const planeMaterial = new THREE.MeshBasicMaterial({
-    color: new THREE.Color('white'),
+    color: new THREE.Color('Black'),
     side: THREE.DoubleSide,
     wireframe: true
 })
@@ -74,18 +75,18 @@ const ui = new dat.GUI()
 // UI Object
 const uiObject = {
     speed: 1,
-    distance: 1
-
+    distance: 1,
+    rotationSpeed: 0.1, // Default rotation speed
 }
 
-// plane UI
+// Plane UI
 const planeFolder = ui.addFolder('Plane')
 
 planeFolder
     .add(planeMaterial, 'wireframe')
-    .name("Toggle Wireframe")
+    .name("Wireframe Slider")
 
-// TorusKnow UI
+// TorusKnot UI
 const torusKnotFolder = ui.addFolder('TorusKnot')
 
 torusKnotFolder
@@ -95,33 +96,40 @@ torusKnotFolder
     .step(0.5)
     .name('Torus Knot Speed')
 
-torusKnotFolderFolder
+torusKnotFolder
     .add(uiObject, 'distance')
     .min(0.5)
     .max(10)
     .step(0.5)
     .name('Torus Knot Distance')
 
+torusKnotFolder
+    .add(uiObject, 'rotationSpeed') // FIXED TYPO
+    .min(0.08)
+    .max(2)
+    .step(0.01)
+    .name('Rotation Slider')
+
 /*******************
 ** ANIMATION LOOP **
 ********************/
 const clock = new THREE.Clock()
 
-const animation = () =>
-{
+const animation = () => {
     // Return elapsedTime
     const elapsedTime = clock.getElapsedTime()
 
     // Animate TorusKnot Position
     testTorusKnot.position.y = Math.sin(elapsedTime * uiObject.speed) * uiObject.distance
-    testTorusKnot.rotation.x += uiObject.rotationSpeed
-    testTorusKnot.roation.y += uiObject.roationSpeed
-    testTorusKnot.roation.z += uiObject.rotationSpeed
 
+    // Rotate TorusKnot (Fixed Typo)
+    testTorusKnot.rotation.x += uiObject.rotationSpeed
+    testTorusKnot.rotation.y += uiObject.rotationSpeed
+    testTorusKnot.rotation.z += uiObject.rotationSpeed
 
     // Update OrbitControls
     controls.update()
-    
+
     // Renderer
     renderer.render(scene, camera)
 
