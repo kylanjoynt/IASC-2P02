@@ -12,6 +12,8 @@ const sizes = {
     aspectRatio: window.innerWidth / window.innerHeight
 }
 
+
+
 // Resizing
 window.addEventListener('resize', () =>
 {
