@@ -57,6 +57,33 @@ const animation = () =>
 
     // Animate testSphere
     testSphere.position.y = Math.sin(elapsedTime)
+
+     // Animation torusKnot
+
+    testTorusKnot.position.z = Math.sin(elapsedTime)
+
+    // Animation Speed and Distance torusKnot
+
+    const speed = 2
+    const distance = 3
+    testTorusKnot.position.y = Math.sin(elapsedTime * speed) * distance
+
+    // Rotation torusKnot
+
+    const rotationSpeed = 2
+    testTorusKnot.rotation.x = elapsedTime * rotationSpeed  
+    testTorusKnot.rotation.y = elapsedTime * rotationSpeed
+    testTorusKnot.rotation.z = elapsedTime * rotationSpeed
+    
+    // Scale torusKnot
+
+    testTorusKnot.scale.x = Math.sin(elapsedTime)
+    testTorusKnot.scale.y = Math.sin(elapsedTime)
+    testTorusKnot.scale.z = Math.sin(elapsedTime)
+
+    // Renderer
+
+    renderer.render(scene, camera)
         
     // Renderer
     renderer.render(scene, camera)
