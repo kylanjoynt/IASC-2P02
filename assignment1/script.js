@@ -71,11 +71,13 @@ ring.position.set(10, 2.5, 0)
 ring.castShadow = true
 scene.add(ring)
 
+
+
 const torusGeometry = new THREE.TorusGeometry(1,0.2)
 const torusMaterial = new THREE.MeshNormalMaterial({side: THREE.DoubleSide})
 const Torus = new THREE.Mesh(torusGeometry, torusMaterial)
 Torus.position.set(10,2.5,0)
-Torus.castShadow = true
+Torus.castShadow = false
 scene.add(Torus)
 
 
@@ -205,22 +207,28 @@ const animation = () =>
     // second-change
     if(domObject.secondChange)
     {
-        ring.rotation.x = elapsedTime
+        Torus.rotation.y = elapsedTime
         Torus.castShadow = true
-        ring.castShadow = false
+        ring.castShadow = true
     }
 
     // third-change
     if(domObject.thirdChange)
     {
-        ring.position.y = (Math.sin(elapsedTime) + 1) * 2
+        ring.position.z = (Math.sin(elapsedTime) + 2) * 1
+        Torus.position.z = (Math.sin(elapsedTime) -1) * 1
+        Torus.castshadow = true
+        ring.castshadow = false
     }
 
     // fourth-change
     if(domObject.fourthChange)
     {
-        ring.position.z = Math.sin(elapsedTime)
-    }
+        ring.position.z = (Math.sin(elapsedTime) + 1) * 1
+        Torus.position.z = (Math.sin(elapsedTime) + 1) * 1
+        Torus.castshadow = true
+        ring.castshadow = false   
+     }
 
     // Update directionalLightHelper
     directionalLightHelper.update()
