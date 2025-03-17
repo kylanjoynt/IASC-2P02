@@ -112,7 +112,7 @@ const ui = new dat.GUI()
 ** TEXT ANALYSIS **
 ******************/
 // SourceText
-const sourceText = "In a small town, an elderly lady named Gretchen lived in a small home surrounded by gardens that she spent each day taking good care of. She grew many different flowers and vegetables, but she specifically loved her carrots and cucumbers. The carrots and cucumbers were her favourite to grow because the animals around her home would come to eat them and visit her while she gardened."
+const sourceText = "In a small town, an elderly lady named Gretchen lived in a small home surrounded by gardens that she spent each day taking good care of. She grew many different flowers and vegetables, but she specifically loved her carrots,cucumbers, and flowers. The carrots and cucumbers were her favourite to grow because the animals around her home would come to eat them and visit her while she gardened."
 
 // Variables
 let parsedText, tokenizedText
