@@ -60,6 +60,7 @@ renderer.setSize(sizes.width, sizes.height)
 const controls = new OrbitControls(camera, canvas)
 controls.enableDamping = true
 
+
 /***********
 ** LIGHTS **
 ***********/
@@ -118,7 +119,7 @@ const uiObj = {
         saveSourceText()
     },
     term1: 'luke',
-    color1: '#0ac93d',
+    color1: '#fac473',
     term2: 'vader',
     color2: '#f20c0c',
     term3: 'obi',
